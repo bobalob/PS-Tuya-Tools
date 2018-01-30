@@ -1,11 +1,11 @@
 Param(
-  $asciiKey = "8bb486f35dbc57dd", #This is the 16-digit hex string 'key' from your device,
-  $publishedMessage = "2.1f965e98d6db781a6YzE/13Vp6p84PA1dV/1rACuvQlqIDsHDjpzZF5hqvPLdWu0bd7SKADwzK893HfHKMl4rdHb5Qc1qPOqfSFVcD1eqGhvwDO7pqCLmArcUpYDSEiSjFCfRKh1hnsbZrXEj" #The encoded Tuya message
+  $asciiKey = '8bb486f35dbc57dd', #This is the 16-digit hex string 'key' from your device,
+  $publishedMessage = '2.1f965e98d6db781a6YzE/13Vp6p84PA1dV/1rACuvQlqIDsHDjpzZF5hqvPLdWu0bd7SKADwzK893HfHKMl4rdHb5Qc1qPOqfSFVcD1eqGhvwDO7pqCLmArcUpYDSEiSjFCfRKh1hnsbZrXEj' #The encoded Tuya message
 )
 
 #Decode an MQTT message from device / cloud or phone
 
-#Example key and message from the following URL
+#Example key and message from the following URL, Example MD5 does NOT work, a real one from a real MQTT message will work correctly
 
 # https://docs.tuya.com/en/cloudapi/device_access.html 
 

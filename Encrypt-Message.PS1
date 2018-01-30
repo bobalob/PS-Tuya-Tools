@@ -1,6 +1,6 @@
 Param (
-    $devId="XXXXXXXXXXXXXXXXXXXX", #Tuya device ID
-    $asciiKey="XXXXXXXXXXXXXXXX", #Tuya device key, 16-digit hexedecimal representation of a b64 AES-128 key
+    $devId="12345678901234567890", #Tuya device ID
+    $asciiKey="0123456789ABCDEF", #Tuya device key, 16-digit hexedecimal representation of a b64 AES-128 key
     $action="false",
     $timeoffset=10, #Adds a few seconds so the time is correct by the time I paste the message!
     $mqttVersion="2.1" #Detected version from phone app is 2.1, 'tuyapi' project appears to use 3.1
@@ -29,7 +29,8 @@ $keybytes = Convert-HexToByteArray -HexString $hexKey
 $b64key = [System.Convert]::ToBase64String($keybytes)
 $encryptedMessage = Encrypt-String -key $b64key -unencryptedString $Message
 
-$md5Template = "data={0}||lpv={1}||{2}"
+#Tuyapi seems to use 'lpv=' instead of 'pv='
+$md5Template = "data={0}||pv={1}||{2}"
 $md5toCalc = $md5Template -f $encryptedMessage, $mqttVersion, $asciiKey
 
 #Encrypt the datas
